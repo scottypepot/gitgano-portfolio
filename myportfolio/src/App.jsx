@@ -1,5 +1,7 @@
 import "./App.css";
 import Techs from "./techstack.jsx";
+import Projects from "./projects.jsx";
+import Contact from "./contact.jsx";
 import { Container, Box, Typography } from "@mui/material";
 import Grid from "@mui/material/Grid";
 
@@ -74,7 +76,7 @@ function App() {
         <Container maxWidth={false}>
           <Box
             sx={{
-              height: "80vh",
+              height: { xs: "78vh", sm: " 88vh", md: "90vh", lg: "80vh" }, // responsive height
               bgcolor: "rgba(60, 60, 60, 0.6)",
               mb: 25,
               borderRadius: 8,
@@ -159,7 +161,14 @@ function App() {
               <Grid size={12}>
                 <Box>
                   <Typography
-                    sx={{ mt: 10, mr: 6, fontSize: 34, textAlign: "left" }}
+                    sx={{
+                      mt: { xs: 4, sm: 7, md: 10, lg: 12 },
+                      mr: { xs: 0, sm: 3, md: 6 },
+                      ml: { xs: 13, sm: 10, md: 4 }, // ✅ Added left margin here
+                      fontSize: { xs: 16, sm: 19, md: 29, lg: 31 },
+                      textAlign: "left",
+                      lineHeight: 1.6,
+                    }}
                   >
                     Hi everyone! Good day my name is Scott Benzer Gitgano a
                     front-end based web developer from Cebu City and Studying at
@@ -168,7 +177,7 @@ function App() {
                     enjoyed building or creating new projects and especially
                     meeting new people, so relax I’m really a nice a guy where
                     you can talk and discuss at me anytime. I may lack
-                    experience for frontend but you can trust me for it as I ‘ve
+                    experience for frontend but you can trust me for it as I’ve
                     work really hard to understand what needs to be understood.
                   </Typography>
                 </Box>
@@ -179,8 +188,15 @@ function App() {
 
         <Container>
           <Techs />
-          <Box></Box>
         </Container>
+      </Container>
+
+      <Container>
+        <Projects />
+      </Container>
+
+      <Container>
+        <Contact />
       </Container>
     </>
   );
