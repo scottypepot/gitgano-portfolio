@@ -12,20 +12,13 @@ const projectData = [
   },
   {
     name: "CapstoneConnect",
-    img: "/imgs/projects/project1.png",
+    img: "/imgs/projects/capstoneconnect.png",
     details:
       "a platform that helps people with similar skills and project " +
       "interests find each other and work together. It lets users create " +
       "profiles, match with others, chat, and form teams. On the web, you" +
       "can use buttons to like or pass on profiles, while on mobile, you " +
       "can swipe. It sends notifications for matches and messages, making collaboration easy.",
-  },
-  {
-    name: "GalacticPulse",
-    img: "/imgs/projects/project1.png",
-    details:
-      "A hackathon challenge which we're challenged " +
-      "to recreate the game galactic pulse",
   },
 ];
 
@@ -46,7 +39,7 @@ export default function Projects() {
   return (
     <>
       <Typography sx={{ mt: 30 }} variant="h4" textAlign="center">
-        Projects
+        Recent Projects
       </Typography>
 
       <Container>
@@ -54,13 +47,12 @@ export default function Projects() {
           sx={{
             mt: 15,
             display: "flex",
-            flexDirection: "row",
+            flexDirection: { xs: "column", md: "row" }, // column on small screens
             alignItems: "center",
             justifyContent: "center",
             gap: 4,
           }}
         >
-          {/* LEFT BUTTON (Replace with your own image later) */}
           <Box
             onClick={prevProject}
             sx={{
@@ -79,27 +71,33 @@ export default function Projects() {
           <Box
             sx={{
               display: "flex",
-              flexDirection: "row",
+              flexDirection: { xs: "column", md: "row" }, // stack on small screens
               alignItems: "center",
               gap: 4,
               maxWidth: "900px",
+              width: "100%",
             }}
           >
             <Box
               component="img"
               src={current.img}
               alt={current.name}
-              sx={{ width: 350, height: "auto" }}
+              sx={{
+                width: { xs: "100%", sm: 300, md: 350 }, // responsive width
+                height: "auto",
+                borderRadius: 2,
+              }}
             />
 
-            <Typography sx={{ flex: 1, textAlign: "left" }}>
+            <Typography
+              sx={{ flex: 1, textAlign: { xs: "center", md: "left" } }}
+            >
               <strong>{current.name}</strong>
               <br />
               {current.details}
             </Typography>
           </Box>
 
-          {/* RIGHT BUTTON (Replace with your own image later) */}
           <Box
             onClick={nextProject}
             sx={{

@@ -4,27 +4,35 @@ import Grid from "@mui/material/Grid";
 const techs = [
   {
     name: "Java",
-    img: "/imgs/facebook-logo.png",
+    img: "/imgs/techs/java.png",
   },
   {
     name: "JavaScript",
-    img: "/imgs/facebook-logo.png",
+    img: "/imgs/techs/js.png",
   },
   {
     name: "ReactJS",
-    img: "/imgs/facebook-logo.png",
+    img: "/imgs/techs/C.png",
   },
   {
     name: "Vite",
-    img: "/imgs/facebook-logo.png",
+    img: "/imgs/techs/react.png",
   },
   {
     name: "Springboot",
-    img: "/imgs/facebook-logo.png",
+    img: "/imgs/techs/spring.png",
   },
   {
     name: "Git",
-    img: "/imgs/facebook-logo.png",
+    img: "/imgs/techs/vite.png",
+  },
+  {
+    name: "Git",
+    img: "/imgs/techs/mui.png",
+  },
+  {
+    name: "Git",
+    img: "/imgs/techs/git.png",
   },
 ];
 //unya nani after ma implement tanan
@@ -41,7 +49,7 @@ export default function techstack() {
   const numTechs = tech.length;
   return (
     <Container sx={{ py: 4 }}>
-      <Typography variant="h4" mb={10}>
+      <Typography variant="h4" mb={10} sx={{ textAlign: "center", mt: 20 }}>
         -- Tech Stacks --
       </Typography>
 
