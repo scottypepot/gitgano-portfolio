@@ -3,13 +3,25 @@ import Techs from "./techstack.jsx";
 import Projects from "./projects.jsx";
 import Contact from "./contact.jsx";
 import Footer from "./footer.jsx";
+import Resume from "./ResumeModal.jsx";
+import Certificate from "./certificates.jsx";
 import { Container, Box, Typography } from "@mui/material";
 import Grid from "@mui/material/Grid";
 
 import Button from "@mui/material/Button";
 import ButtonGroup from "@mui/material/ButtonGroup";
+import { useState } from "react";
 
 function App() {
+  const [openCv, setOpen] = useState(false);
+  const [openCert, setOpenCert] = useState(false);
+
+  const handleOpenCv = () => setOpen(true);
+  const handleCloseCv = () => setOpen(false);
+
+  const handleOpenCert = () => setOpenCert(true);
+  const handleCloseCert = () => setOpenCert(false);
+
   return (
     <>
       <Container maxWidth={false}>
@@ -146,6 +158,7 @@ function App() {
 
                 <Box sx={{ mt: 2 }}>
                   <Button
+                    onClick={handleOpenCv}
                     sx={{
                       fontSize: "1rem",
                       color: "black",
@@ -165,6 +178,7 @@ function App() {
                 </Box>
                 <Box sx={{ mt: 2 }}>
                   <Button
+                    onClick={handleOpenCert}
                     sx={{
                       fontSize: "1rem",
                       color: "black",
@@ -209,6 +223,8 @@ function App() {
               </Grid>
             </Grid>
           </Box>
+          <Certificate openCert={openCert} onCloseCert={handleCloseCert} />
+          <Resume openCv={openCv} onCloseCv={handleCloseCv} />
         </Container>
 
         <Container>
