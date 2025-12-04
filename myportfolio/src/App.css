@@ -9,23 +9,6 @@ html,
   flex-direction: column;
   align-items: center;
 }
-.navbar {
-  margin-top: 40px;
-  padding-inline: 50px;
-}
-
-.navbar ul {
-  display: flex;
-  justify-content: space-between;
-  gap: 20px;
-  padding: 5px;
-  list-style: none;
-  flex-wrap: wrap;
-}
-
-.navbar ul li {
-  font-size: clamp(14px, 2vw, 25px);
-}
 
 .body-style {
   display: flex;
@@ -44,7 +27,7 @@ html,
   font-size: clamp(14px, 2.5vw, 25px) !important;
 }
 .body-style img {
-  width: clamp(150px, 40vw, 450px) !important;
+  width: clamp(150px, 30vw, 380px) !important;
   height: auto;
   margin: 0 auto;
 }

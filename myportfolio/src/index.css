@@ -11,19 +11,3 @@ body {
   background-color: black;
   color: white;
 }
-
-.navbar ul {
-  display: flex;
-  gap: 30px;
-  font-size: 30px;
-  font-weight: 700;
-}
-
-.navbar ul li {
-  margin: 0;
-  padding: 0;
-}
-
-.navbar ul li:nth-child(2) {
-  margin-left: auto;
-}

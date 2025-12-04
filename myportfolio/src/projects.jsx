@@ -90,9 +90,12 @@ export default function Projects() {
             />
 
             <Typography
+              component="div"
               sx={{ flex: 1, textAlign: { xs: "center", md: "left" } }}
             >
-              <strong>{current.name}</strong>
+              <Typography sx={{ fontSize: 20, fontWeight: 600 }}>
+                {current.name}
+              </Typography>
               <br />
               {current.details}
             </Typography>
