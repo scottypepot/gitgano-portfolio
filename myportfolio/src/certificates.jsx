@@ -51,142 +51,153 @@ export default function Certificates({ openCert, onCloseCert }) {
           (c) => c.category.toLowerCase() === selectedCategory.toLowerCase()
         );
   return (
-    <>
-      <Modal open={openCert} onClose={onCloseCert}>
-        <Box
-          sx={{
-            position: "absolute",
-            top: "50%",
-            left: "50%",
-            transform: "translate(-50%, -50%)",
-            width: { xs: "95vw", md: "50vw" },
-            maxWidth: "95vw",
-            height: { xs: "80vh", md: "95vh" },
-            p: 2,
-            borderRadius: 2,
-            bgcolor: "rgba(32, 32, 32, 1)",
-            overflow: "auto",
-          }}
-        >
-          <Fade in={openCert}>
-            <Box>
-              <Typography fontWeight={600} fontSize={30} textAlign="center">
+    <Modal open={openCert} onClose={onCloseCert}>
+      <Box
+        sx={{
+          position: "absolute",
+          top: { xs: "55%", sm: "52%", md: "53%" },
+          left: "50%",
+          transform: "translate(-50%, -50%)",
+          width: { xs: "92vw", sm: "85vw", md: "50vw" },
+          maxWidth: { xs: "92vw", md: "95vw" },
+          height: { xs: "85vh", md: "89vh" },
+          p: { xs: 1, md: 1.5 },
+          borderRadius: { xs: 4, md: 2 },
+          bgcolor: "#24233b",
+          zIndex: 14000, // put modal above navbar (navbar zIndex ~9999)
+          boxShadow: "0px 10px 10px rgb(73, 70, 92)",
+          transition: "0.5s",
+          overflow: "hidden", // keep modal itself from scrolling
+          boxSizing: "border-box",
+        }}
+      >
+        <Fade in={openCert}>
+          <Box
+            sx={{ height: "100%", display: "flex", flexDirection: "column" }}
+          >
+            {/* Mac-style top bar */}
+            <Box
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                gap: 1,
+                mb: 2,
+                pl: 1,
+              }}
+            >
+              <Box
+                sx={{
+                  width: 10,
+                  height: 10,
+                  borderRadius: "50%",
+                  bgcolor: "#ff605c",
+                }}
+              />
+              <Box
+                sx={{
+                  width: 10,
+                  height: 10,
+                  borderRadius: "50%",
+                  bgcolor: "#ffbd44",
+                }}
+              />
+              <Box
+                sx={{
+                  width: 10,
+                  height: 10,
+                  borderRadius: "50%",
+                  bgcolor: "#00ca4e",
+                }}
+              />
+              <Typography sx={{ color: "white", ml: 2, fontSize: 15 }}>
                 CERTIFICATES
               </Typography>
-              <IconButton
-                onClick={onCloseCert}
-                sx={{
-                  position: "absolute",
-                  top: 8,
-                  right: 8,
-                  zIndex: 10,
-                  bgcolor: "rgba(0,0,0,0.2)",
-                  "&:hover": { bgcolor: "rgba(0,0,0,0.4)" },
-                }}
-              >
-                <CloseIcon sx={{ color: "white" }} />
-              </IconButton>
-              <Container sx={{ mt: 3 }}>
-                <Grid container justifyContent="center" spacing={2}>
-                  {categories.map((cat) => (
-                    <Grid item key={cat}>
-                      <Button
-                        variant="text"
-                        disableRipple
+            </Box>
+
+            <IconButton
+              onClick={onCloseCert}
+              sx={{
+                position: "absolute",
+                top: 8,
+                right: 8,
+                zIndex: 10,
+                bgcolor: "rgba(0,0,0,0.2)",
+                "&:hover": { bgcolor: "rgba(0,0,0,0.4)" },
+              }}
+            >
+              <CloseIcon sx={{ color: "white" }} />
+            </IconButton>
+
+            {/* Scrollable content */}
+            <Box
+              sx={{
+                backgroundColor: "rgb(73, 70, 92)",
+                borderRadius: 3,
+                p: 2,
+                flex: 1,
+                overflowY: "auto", // vertical scrolling
+              }}
+            >
+              {/* Categories */}
+              <Box sx={{ display: "flex", gap: 2, overflowX: "auto", pb: 1 }}>
+                {categories.map((cat) => (
+                  <Button
+                    key={cat}
+                    variant="text"
+                    disableRipple
+                    sx={{
+                      textTransform: "none",
+                      color: selectedCategory === cat ? "#9153CA" : "white",
+                      "&:hover": {
+                        color: selectedCategory === cat ? "white" : "#9153CA",
+                        bgcolor: "transparent !important",
+                        transition: "color 0.3s ease",
+                      },
+                      fontSize: 20,
+                      flexShrink: 0,
+                      bgcolor: "transparent !important",
+                    }}
+                    onClick={() => setSelectedCategory(cat)}
+                  >
+                    {cat}
+                  </Button>
+                ))}
+              </Box>
+
+              {/* Certificates images */}
+              {filteredCerts.length > 0 ? (
+                <Grid
+                  container
+                  rowSpacing={8}
+                  sx={{ mt: 5 }}
+                  justifyContent="center"
+                  alignItems="flex-start"
+                >
+                  {filteredCerts.map((cert, index) => (
+                    <Grid key={index} sx={{ textAlign: "center" }}>
+                      <Box
+                        component="img"
+                        src={cert.image}
+                        alt={cert.name}
                         sx={{
-                          textTransform: "none",
-                          color: selectedCategory === cat ? "wheat" : "white",
-                          "&:hover": {
-                            color: selectedCategory === cat ? "white" : "wheat",
-                            bgcolor: "transparent !important",
-                            transition: "color 0.3s ease",
-                          },
-                          fontSize: 20,
-                          bgcolor: "transparent !important",
+                          width: { xs: 220, lg: 330 },
+                          height: { xs: 200, lg: 330 },
+                          objectFit: "contain",
                         }}
-                        onClick={() => setSelectedCategory(cat)}
-                      >
-                        {cat}
-                      </Button>
+                      />
+                      <Typography sx={{ fontSize: 14, color: "white" }}>
+                        {cert.name}
+                      </Typography>
                     </Grid>
                   ))}
                 </Grid>
-              </Container>
-              {filteredCerts.length > 0 ? (
-                <Container>
-                  <Grid
-                    container
-                    rowSpacing={8}
-                    sx={{ mt: 5 }}
-                    justifyContent="center"
-                    alignItems="flex-start"
-                  >
-                    {filteredCerts.map((cert, index) => (
-                      <Grid
-                        key={index}
-                        sx={{
-                          textAlign: "center",
-                        }}
-                        size={{ xs: 6, sm: 6, md: 6, lg: 4 }}
-                      >
-                        <Box
-                          onClick={() => window.open(cert.link, "_blank")}
-                          sx={{
-                            position: "relative",
-                            cursor: "pointer",
-                            transition: "0.3s",
-                            "&:hover": {
-                              transform: "scale(1.05)",
-                            },
-                            "&:hover .certImage": {
-                              opacity: 0.3,
-                            },
-                            "&:hover .hoverIcon": {
-                              opacity: 1,
-                            },
-                          }}
-                        >
-                          <Box
-                            component="img"
-                            className="certImage"
-                            src={cert.image}
-                            alt={cert.name}
-                            sx={{
-                              width: { xs: 220, lg: 330 },
-                              height: { xs: 200, lg: 330 },
-                              objectFit: "contain",
-                            }}
-                          />
-                          <Box
-                            className="hoverIcon"
-                            sx={{
-                              position: "absolute",
-                              top: "50%",
-                              left: "50%",
-                              transform: "translate(-50%, -50%)",
-                              opacity: 0,
-                              transition: "0.3s",
-                              fontSize: 50,
-                            }}
-                          >
-                            <img src={hoverIcon} width={50} />
-                          </Box>
-                        </Box>
-
-                        <Typography sx={{ fontSize: 14, color: "white" }}>
-                          {cert.name}
-                        </Typography>
-                      </Grid>
-                    ))}
-                  </Grid>
-                </Container>
               ) : (
-                <Typography>BLEH</Typography>
+                <Typography color="white">No certificates found</Typography>
               )}
             </Box>
-          </Fade>
-        </Box>
-      </Modal>
-    </>
+          </Box>
+        </Fade>
+      </Box>
+    </Modal>
   );
 }

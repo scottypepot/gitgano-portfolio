@@ -49,33 +49,33 @@ export default function techstack() {
   const numTechs = tech.length;
   return (
     <Container sx={{ py: 4 }}>
-      <Typography variant="h4" mb={10} sx={{ textAlign: "center", mt: 20 }}>
+      <Typography
+        variant="h4"
+        mb={10}
+        sx={{ textAlign: "center", mt: 20, mb: 20 }}
+      >
         -- Tech Stacks --
       </Typography>
 
       {numTechs > 0 ? (
-        <Container>
-          <Grid
-            container
-            columnSpacing={1}
-            rowSpacing={6}
-            justifyContent="center"
-          >
+        <Container sx={{ display: "flex", justifyContent: "center" }}>
+          {/* THE 3D ROTATING CAROUSEL */}
+          <Box className="card-3d">
             {techs.map((tech, index) => (
-              <Grid
-                key={index}
-                sx={{ textAlign: "center" }}
-                size={{ xs: 4, sm: 4, md: 3 }}
-              >
+              <div key={index}>
                 <Box
                   component="img"
                   src={tech.img}
                   alt={tech.name}
-                  sx={{ width: 100, height: 100, objectFit: "contain" }}
+                  sx={{
+                    width: 60,
+                    height: 60,
+                    objectFit: "contain",
+                  }}
                 />
-              </Grid>
+              </div>
             ))}
-          </Grid>
+          </Box>
         </Container>
       ) : (
         <Typography>bleh</Typography>

@@ -1,5 +1,5 @@
 import { Container, Box, Typography, Stack } from "@mui/material";
-import { useState } from "react";
+import "./Projects.css";
 const projectData = [
   {
     name: "FitTrack",
@@ -9,6 +9,7 @@ const projectData = [
       "allowing them to input their workout type, workout goals," +
       "and rest times. They can also upload photos, share them with others" +
       " and receive likes or comments on their posts.",
+    link: "https://github.com/scottypepot/FitTrack", // <-- Replace with your real link
   },
   {
     name: "CapstoneConnect",
@@ -19,23 +20,18 @@ const projectData = [
       "profiles, match with others, chat, and form teams. On the web, you" +
       "can use buttons to like or pass on profiles, while on mobile, you " +
       "can swipe. It sends notifications for matches and messages, making collaboration easy.",
+    link: "https://capstoneconnect.vercel.app/",
+  },
+  {
+    name: "Pizza Menu",
+    img: "/imgs/projects/pizzamenu.png",
+    details:
+      "A simple and user-friendly pizza menu application that allows users to browse through a variety of pizza options, customize their orders with different toppings and sizes, and view prices. This app serves as my practice project for learning JavaScript basics and props usage.",
+    link: "https://github.com/scottypepot/PizzaMenu",
   },
 ];
 
 export default function Projects() {
-  const [index, setIndex] = useState(0);
-  const project = projectData;
-
-  const nextProject = () => {
-    setIndex((prev) => (prev + 1) % project.length);
-  };
-
-  const prevProject = () => {
-    setIndex((prev) => (prev - 1 + project.length) % project.length);
-  };
-
-  const current = project[index];
-
   return (
     <>
       <Typography sx={{ mt: 30 }} variant="h4" textAlign="center">
@@ -45,75 +41,78 @@ export default function Projects() {
       <Container>
         <Box
           sx={{
-            mt: 15,
+            mt: 10,
             display: "flex",
-            flexDirection: { xs: "column", md: "row" }, // column on small screens
-            alignItems: "center",
             justifyContent: "center",
-            gap: 4,
+            flexWrap: "wrap",
+            gap: 5,
           }}
         >
-          <Box
-            onClick={prevProject}
-            sx={{
-              padding: "12px 20px",
-              background: "lightgray",
-              borderRadius: "8px",
-              cursor: "pointer",
-              userSelect: "none",
-              fontWeight: "bold",
-            }}
-          >
-            {"<"}
-          </Box>
+          {projectData.map((proj, i) => (
+            <div key={i} className="brutalist-card" style={{ width: "380px" }}>
+              {/* TOP FLEX: image on top, name wraps below if needed */}
+              <div
+                style={{
+                  display: "flex",
+                  flexWrap: "wrap",
+                  alignItems: "flex-start",
+                  justifyContent: "space-between",
+                  borderBottom: "2px solid #000",
+                  paddingBottom: "1rem",
+                  marginBottom: "1rem",
+                  gap: "1rem",
+                }}
+              >
+                {/* RIGHT — IMAGE (flex-grow to push name down if needed) */}
+                <img
+                  src={proj.img}
+                  alt={proj.name}
+                  style={{
+                    width: "380px",
+                    height: "200px",
+                    objectFit: "cover",
+                    border: "3px solid #000",
+                    boxShadow: "5px 5px 0 #000",
+                    flexShrink: 0,
+                  }}
+                />
 
-          {/* CONTENT */}
-          <Box
-            sx={{
-              display: "flex",
-              flexDirection: { xs: "column", md: "row" }, // stack on small screens
-              alignItems: "center",
-              gap: 4,
-              maxWidth: "900px",
-              width: "100%",
-            }}
-          >
-            <Box
-              component="img"
-              src={current.img}
-              alt={current.name}
-              sx={{
-                width: { xs: "100%", sm: 300, md: 350 }, // responsive width
-                height: "auto",
-                borderRadius: 2,
-              }}
-            />
+                {/* LEFT — NAME (wraps to bottom if container is too small) */}
+                <div
+                  style={{
+                    fontWeight: 900,
+                    color: "#000",
+                    fontSize: "1.2rem",
+                    textTransform: "uppercase",
+                    flexBasis: "100%",
+                    wordWrap: "break-word",
+                  }}
+                >
+                  {proj.name}
+                </div>
+              </div>
 
-            <Typography
-              component="div"
-              sx={{ flex: 1, textAlign: { xs: "center", md: "left" } }}
-            >
-              <Typography sx={{ fontSize: 20, fontWeight: 600 }}>
-                {current.name}
-              </Typography>
-              <br />
-              {current.details}
-            </Typography>
-          </Box>
+              {/* DETAILS */}
+              <div
+                className="brutalist-card__message"
+                style={{ fontWeight: 600 }}
+              >
+                {proj.details}
+              </div>
 
-          <Box
-            onClick={nextProject}
-            sx={{
-              padding: "12px 20px",
-              background: "lightgray",
-              borderRadius: "8px",
-              cursor: "pointer",
-              userSelect: "none",
-              fontWeight: "bold",
-            }}
-          >
-            {">"}
-          </Box>
+              {/* BUTTON */}
+              <div className="brutalist-card__actions">
+                <a
+                  href={proj.link}
+                  className="brutalist-card__button"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  View Project
+                </a>
+              </div>
+            </div>
+          ))}
         </Box>
       </Container>
     </>
