@@ -89,7 +89,7 @@ export default function About() {
             >
               <Box
                 component="img"
-                src="imgs/profile.png"
+                src="/imgs/Profile.png"
                 alt="profile-image"
                 sx={{
                   width: "100%",

@@ -175,7 +175,7 @@ export default function Home() {
               },
             }}
           >
-            <img src="imgs/profile.png" alt="profile-image" />
+            <img src="/imgs/Profile.png" alt="profile-image" />
           </Box>
         </Box>
       </Box>
