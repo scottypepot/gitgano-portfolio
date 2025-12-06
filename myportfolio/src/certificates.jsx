@@ -58,14 +58,14 @@ export default function Certificates({ openCert, onCloseCert }) {
           top: { xs: "55%", sm: "52%", md: "53%" },
           left: "50%",
           transform: "translate(-50%, -50%)",
-          width: { xs: "92vw", sm: "85vw", md: "50vw" },
+          width: { xs: "92vw", sm: "85vw", md: "60vw" },
           maxWidth: { xs: "92vw", md: "95vw" },
           height: { xs: "85vh", md: "89vh" },
           p: { xs: 1, md: 1.5 },
           borderRadius: { xs: 4, md: 2 },
           bgcolor: "#24233b",
           zIndex: 14000, // put modal above navbar (navbar zIndex ~9999)
-          boxShadow: "0px 10px 10px rgb(73, 70, 92)",
+          boxShadow: "0px 1px 20px rgb(73, 70, 92)",
           transition: "0.5s",
           overflow: "hidden", // keep modal itself from scrolling
           boxSizing: "border-box",
