@@ -42,7 +42,7 @@ export default function Navbar() {
     },
     { label: "About", action: () => scrollToSection("about", 150) },
     { label: "Skills", action: () => scrollToSection("skills", 90) },
-    { label: "Projects", action: () => scrollToSection("projects", 100) },
+    { label: "Projects", action: () => scrollToSection("projects", 10) },
     {
       label: "Contact",
       action: () =>

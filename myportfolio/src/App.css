@@ -4,10 +4,13 @@ html,
   margin: 0;
   padding: 0;
   width: 100%;
+  overflow: auto;
   overflow-x: hidden;
   display: flex;
   flex-direction: column;
   align-items: center;
+  scroll-behavior: auto !important;
+  overflow-anchor: none; /* prevents browser from shifting scroll when content animates */
 }
 
 .body-style {
@@ -20,6 +23,9 @@ html,
     100% {
       filter: hue-rotate(360deg);
     }
+  }
+  .MuiContainer-root {
+    overflow: visible !important;
   }
 
   .cube-widget .container {

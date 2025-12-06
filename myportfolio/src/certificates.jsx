@@ -174,18 +174,54 @@ export default function Certificates({ openCert, onCloseCert }) {
                   alignItems="flex-start"
                 >
                   {filteredCerts.map((cert, index) => (
-                    <Grid key={index} sx={{ textAlign: "center" }}>
+                    <Grid
+                      key={index}
+                      sx={{ textAlign: "center", position: "relative" }}
+                    >
                       <Box
-                        component="img"
-                        src={cert.image}
-                        alt={cert.name}
                         sx={{
+                          position: "relative",
                           width: { xs: 220, lg: 330 },
                           height: { xs: 200, lg: 330 },
-                          objectFit: "contain",
+                          cursor: "pointer",
+                          "&:hover .hoverIcon": {
+                            opacity: 1,
+                          },
                         }}
-                      />
-                      <Typography sx={{ fontSize: 14, color: "white" }}>
+                        onClick={() => window.open(cert.link, "_blank")}
+                      >
+                        <Box
+                          component="img"
+                          src={cert.image}
+                          alt={cert.name}
+                          sx={{
+                            width: "100%",
+                            height: "100%",
+                            objectFit: "contain",
+                            display: "block",
+                          }}
+                        />
+
+                        {/* Hover icon */}
+                        <Box
+                          component="img"
+                          src={hoverIcon}
+                          alt="view"
+                          className="hoverIcon"
+                          sx={{
+                            position: "absolute",
+                            top: "50%",
+                            left: "50%",
+                            transform: "translate(-50%, -50%)",
+                            width: 50,
+                            height: 50,
+                            opacity: 0,
+                            transition: "opacity 0.3s ease",
+                          }}
+                        />
+                      </Box>
+
+                      <Typography sx={{ fontSize: 14, color: "white", mt: 1 }}>
                         {cert.name}
                       </Typography>
                     </Grid>

@@ -9,7 +9,7 @@ const projectData = [
       "allowing them to input their workout type, workout goals," +
       "and rest times. They can also upload photos, share them with others" +
       " and receive likes or comments on their posts.",
-    link: "https://github.com/scottypepot/FitTrack", // <-- Replace with your real link
+    link: "https://github.com/scottypepot/FitTrack",
   },
   {
     name: "CapstoneConnect",
@@ -49,7 +49,14 @@ export default function Projects() {
           }}
         >
           {projectData.map((proj, i) => (
-            <div key={i} className="brutalist-card" style={{ width: "380px" }}>
+            <div
+              key={i}
+              className="brutalist-card"
+              style={{ width: "380px" }}
+              data-aos="zoom-in-up" // AOS animation
+              data-aos-delay={i * 150} // staggered delay (150ms per card)
+              data-aos-duration="800" // animation duration (optional)
+            >
               {/* TOP FLEX: image on top, name wraps below if needed */}
               <div
                 style={{
@@ -63,7 +70,7 @@ export default function Projects() {
                   gap: "1rem",
                 }}
               >
-                {/* RIGHT — IMAGE (flex-grow to push name down if needed) */}
+                {/* IMAGE */}
                 <img
                   src={proj.img}
                   alt={proj.name}
@@ -77,7 +84,7 @@ export default function Projects() {
                   }}
                 />
 
-                {/* LEFT — NAME (wraps to bottom if container is too small) */}
+                {/* NAME */}
                 <div
                   style={{
                     fontWeight: 900,

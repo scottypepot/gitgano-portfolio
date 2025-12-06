@@ -5,6 +5,7 @@ import Grid from "@mui/material/Grid";
 import { useState } from "react";
 import Button from "@mui/material/Button";
 import ButtonGroup from "@mui/material/ButtonGroup";
+
 export default function About() {
   const [openCv, setOpen] = useState(false);
   const [openCert, setOpenCert] = useState(false);
@@ -313,22 +314,49 @@ export default function About() {
               <Typography
                 variant="body1"
                 sx={{
-                  lineHeight: 1.8,
+                  lineHeight: 1.9,
                   overflowWrap: "break-word",
-                  fontSize: { xs: 16, sm: 19, md: 24, lg: 31 },
-                  ml: 3,
+                  fontSize: { xs: 13, sm: 15, md: 20, lg: 20 },
+                  ml: { xs: 1, sm: 2, md: 3 },
+                  pr: { xs: 1, sm: 2, md: 3 },
                   textAlign: "left",
+                  color: "#e0e0e0",
+                  letterSpacing: 0.4,
+                  maxWidth: "90%",
+                  borderLeft: "3px solid rgba(171, 82, 255, 0.4)",
+                  pl: 3,
+                  py: 1,
                 }}
               >
-                Hi everyone! Good day my name is Scott Benzer Gitgano a
-                front-end based web developer from Cebu City and Studying at
-                Cebu Institute of Technology - University, where i majored in
-                Bachelor of Science in Information Technology. I really enjoyed
-                building or creating new projects and especially meeting new
-                people, so relax I’m really a nice a guy where you can talk and
-                discuss at me anytime. I may lack experience for frontend but
-                you can trust me for it as I’ve work really hard to understand
-                what needs to be understood.
+                Hi, I'm <strong>Scott Benzer Gitgano</strong>, a
+                front-end–focused web developer from Cebu City and an
+                Information Technology student at Cebu Institute of Technology –
+                University. I specialize in building clean, intuitive, and
+                user-centered web interfaces using JavaScript, ReactJS, and
+                Java.
+                <br />
+                <br />
+                I’ve worked on several academic and hackathon projects—including
+                <strong> GalacticPulse</strong>,{" "}
+                <strong>CapstoneConnect</strong>, and
+                <strong> FitTrack</strong>—where I developed key front-end
+                features such as profile browsing, matching workflows, chat
+                interfaces, real-time notifications, and workout tracking
+                dashboards.
+                <br />
+                <br />
+                Through these projects, I’ve gained strong experience in UI/UX
+                design, responsive layouts, and building components that feel
+                smooth and modern. I enjoy creating new projects, learning new
+                technologies, and collaborating with people who love turning
+                ideas into reality.
+                <br />
+                <br />
+                Even though I’m still growing as a developer, I work hard, learn
+                fast, and always aim to deliver high-quality work. If you're
+                looking for someone dedicated, curious, and passionate about
+                front-end development—I’m excited to connect and build something
+                great together.
               </Typography>
             </Grid>
           </Grid>

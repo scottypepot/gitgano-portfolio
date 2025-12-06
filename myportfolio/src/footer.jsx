@@ -6,11 +6,15 @@ export default function Footer() {
       <Box
         component="footer"
         sx={{
+          width: "100vw", // full browser width
+          mx: "calc(50% - 50vw)", // removes parent container limits
           textAlign: "center",
           py: 2,
-          mt: 4,
+          mt: 3,
           fontSize: 14,
           color: "white",
+          bgcolor: "black",
+          overflow: "hidden",
         }}
       >
         <Typography>
