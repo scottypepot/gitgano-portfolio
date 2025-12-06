@@ -252,55 +252,55 @@ html,
 /* ===== TABLET ===== */
 @media (max-width: 768px) {
   .card-3d div:nth-child(1) {
-    transform: translate(-50%, -50%) rotateY(0deg) translateZ(150px);
+    transform: translate(-50%, -50%) rotateY(0deg) translateZ(180px);
   }
   .card-3d div:nth-child(2) {
-    transform: translate(-50%, -50%) rotateY(45deg) translateZ(150px);
+    transform: translate(-50%, -50%) rotateY(45deg) translateZ(180px);
   }
   .card-3d div:nth-child(3) {
-    transform: translate(-50%, -50%) rotateY(90deg) translateZ(150px);
+    transform: translate(-50%, -50%) rotateY(90deg) translateZ(180px);
   }
   .card-3d div:nth-child(4) {
-    transform: translate(-50%, -50%) rotateY(135deg) translateZ(150px);
+    transform: translate(-50%, -50%) rotateY(135deg) translateZ(180px);
   }
   .card-3d div:nth-child(5) {
-    transform: translate(-50%, -50%) rotateY(180deg) translateZ(150px);
+    transform: translate(-50%, -50%) rotateY(180deg) translateZ(180px);
   }
   .card-3d div:nth-child(6) {
-    transform: translate(-50%, -50%) rotateY(225deg) translateZ(150px);
+    transform: translate(-50%, -50%) rotateY(225deg) translateZ(180px);
   }
   .card-3d div:nth-child(7) {
-    transform: translate(-50%, -50%) rotateY(270deg) translateZ(150px);
+    transform: translate(-50%, -50%) rotateY(270deg) translateZ(180px);
   }
   .card-3d div:nth-child(8) {
-    transform: translate(-50%, -50%) rotateY(315deg) translateZ(150px);
+    transform: translate(-50%, -50%) rotateY(315deg) translateZ(180px);
   }
 }
 
 /* ===== PHONE ===== */
 @media (max-width: 480px) {
   .card-3d div:nth-child(1) {
-    transform: translate(-50%, -50%) rotateY(0deg) translateZ(110px);
+    transform: translate(-50%, -50%) rotateY(0deg) translateZ(180px);
   }
   .card-3d div:nth-child(2) {
-    transform: translate(-50%, -50%) rotateY(45deg) translateZ(110px);
+    transform: translate(-50%, -50%) rotateY(45deg) translateZ(180px);
   }
   .card-3d div:nth-child(3) {
-    transform: translate(-50%, -50%) rotateY(90deg) translateZ(110px);
+    transform: translate(-50%, -50%) rotateY(90deg) translateZ(180px);
   }
   .card-3d div:nth-child(4) {
-    transform: translate(-50%, -50%) rotateY(135deg) translateZ(110px);
+    transform: translate(-50%, -50%) rotateY(135deg) translateZ(180px);
   }
   .card-3d div:nth-child(5) {
-    transform: translate(-50%, -50%) rotateY(180deg) translateZ(110px);
+    transform: translate(-50%, -50%) rotateY(180deg) translateZ(180px);
   }
   .card-3d div:nth-child(6) {
-    transform: translate(-50%, -50%) rotateY(225deg) translateZ(110px);
+    transform: translate(-50%, -50%) rotateY(225deg) translateZ(180px);
   }
   .card-3d div:nth-child(7) {
-    transform: translate(-50%, -50%) rotateY(270deg) translateZ(110px);
+    transform: translate(-50%, -50%) rotateY(270deg) translateZ(180px);
   }
   .card-3d div:nth-child(8) {
-    transform: translate(-50%, -50%) rotateY(315deg) translateZ(110px);
+    transform: translate(-50%, -50%) rotateY(315deg) translateZ(180px);
   }
 }
